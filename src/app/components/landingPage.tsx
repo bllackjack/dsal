@@ -7,7 +7,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50); 
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -19,10 +19,9 @@ const LandingPage = () => {
   return (
     <div
       style={{
-        height: '200vh', 
+        height: '200vh',
         backgroundColor: '#545F41',
-        backgroundImage: "url('/bg.jpg')", 
-        backgroundSize: 'cover', 
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         fontFamily: "'Playfair Display', serif",
         margin: 0,
@@ -42,7 +41,7 @@ const LandingPage = () => {
             flexDirection: 'column',
             gap: '5px',
           }}
-          onClick={() => alert('Menu clicked')} 
+          onClick={() => alert('Menu clicked')}
         >
           <div
             style={{
@@ -73,84 +72,152 @@ const LandingPage = () => {
 
       {/* DSAL Section */}
       <motion.div
-        className="center-box"
+        className="dsal-container"
         style={{
           position: scrolled ? 'fixed' : 'absolute',
           top: scrolled ? '20px' : '50%',
-          right: scrolled ? '20px' : '50%',
-          transform: scrolled ? 'translate(0, 0)' : 'translate(50%, -50%)',
+          left: scrolled ? 'auto' : '50%',
+          right: scrolled ? '20px' : 'auto',
+          transform: scrolled ? 'none' : 'translate(-50%, -50%)',
           display: 'flex',
+          flexDirection: scrolled ? 'column' : 'row',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '10px',
-          boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
+          fontSize: scrolled ? '1.5rem' : '25vw',
+          lineHeight: scrolled ? '1.2' : 'normal',
+          textAlign: 'center',
           transition: 'all 0.5s ease',
-          flexDirection: scrolled ? 'column' : 'row',
+          width: scrolled ? 'auto' : '100%',
         }}
       >
         {/* DS Section */}
         <motion.div
-          className="ds"
-          whileHover={{
-            backgroundImage: "url('/ds.jpg')",
-            backgroundSize: 'cover',
-            filter: 'blur(3px)', 
-          }}
           style={{
-            width: scrolled ? '80px' : '150px',
-            height: scrolled ? '50px' : '150px',
-            backgroundColor: scrolled ? 'transparent' : '#545F41', 
             display: 'flex',
+            position: 'relative',
+            cursor: 'pointer',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: scrolled ? '1rem' : '2rem',
-            fontWeight: 'bold',
-            color: '#D1D870',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-            borderRadius: '10px 0 0 10px',
-            cursor: 'pointer',
-            letterSpacing: '-2px', 
+          }}
+          whileHover={{
+            scale: 1.2, // Scale on hover
           }}
         >
-          DS
-        </motion.div>
-
-        {/* Divider */}
-        {!scrolled && (
-          <div
+          {/* D */}
+          <motion.div
             style={{
-              width: '2px',
-              height: '150px',
-              backgroundColor: '#545F41',
+              fontWeight: 'bold',
+              color: '#D1D870',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              transition: 'all 0.7s ease',
             }}
-          />
-        )}
+            whileHover={{
+              x: -50,
+            }}
+          >
+            D
+          </motion.div>
+
+          {/* Image for DS */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              width: '100px',
+              height: '100px',
+              backgroundImage: "url('/new.jpg')", 
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '10px', // Square border
+              zIndex: -1,
+              opacity: 0, // Initially hidden
+            }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileHover={{
+              scale: 1.5,
+              opacity: 1, 
+            }}
+            transition={{ duration: 0.3 }}
+          ></motion.div>
+
+          {/* S */}
+          <motion.div
+            style={{
+              fontWeight: 'bold',
+              color: '#D1D870',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              transition: 'all 0.3s ease',
+            }}
+            whileHover={{
+              x: 30, 
+            }}
+          >
+            S
+          </motion.div>
+        </motion.div>
 
         {/* AL Section */}
         <motion.div
-          className="al"
-          whileHover={{
-            backgroundImage: "url('/al.jpg')", 
-            backgroundSize: 'cover',
-            filter: 'blur(3px)', 
-          }}
           style={{
-            width: scrolled ? '80px' : '150px',
-            height: scrolled ? '50px' : '150px',
-            backgroundColor: scrolled ? 'transparent' : '#545F41', 
             display: 'flex',
+            position: 'relative',
+            cursor: 'pointer',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: scrolled ? '1rem' : '2rem',
-            fontWeight: 'bold',
-            color: '#D1D870',
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
-            borderRadius: '0 10px 10px 0',
-            cursor: 'pointer',
-            letterSpacing: '-2px', 
+          }}
+          whileHover={{
+            scale: 1.2, 
           }}
         >
-          AL
+          {/* A */}
+          <motion.div
+            style={{
+              fontWeight: 'bold',
+              color: '#D1D870',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              transition: 'all 0.3s ease',
+            }}
+            whileHover={{
+              x: -30, 
+            }}
+          >
+            A
+          </motion.div>
+
+          {/* Image for AL */}
+          <motion.div
+            style={{
+              position: 'absolute',
+              width: '100px',
+              height: '100px',
+              backgroundImage: "url('/new.jpg')", 
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              borderRadius: '10px', // Square border
+              zIndex: -1,
+              opacity: 0, // Initially hidden
+            }}
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileHover={{
+              scale: 1.5,
+              opacity: 1, // Show image on hover
+            }}
+            transition={{ duration: 0.3 }}
+          ></motion.div>
+
+          {/* L */}
+          <motion.div
+            style={{
+              fontWeight: 'bold',
+              color: '#D1D870',
+              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.7)',
+              transition: 'all 0.7s ease',
+            }}
+            whileHover={{
+              x: 30, 
+            }}
+          >
+            L
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>
@@ -158,5 +225,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-
