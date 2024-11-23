@@ -1,22 +1,39 @@
-import React from "react";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+export const metadata: Metadata = {
+  title: "DSAL",
+  description: "",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>dsal - Coming Soon</title>
-      </head>
-      <body className="bg-darkGreen text-white flex flex-col items-center justify-center h-screen">
-        {
-
-        }
-        <main className="flex-grow">{children}</main>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          background: "#545F41", // Solid background color
+        }}
+      >
+        {children}
       </body>
     </html>
   );
-};
+}
 
-export default Layout;
