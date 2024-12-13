@@ -46,66 +46,63 @@ const HeaderPage = () => {
         )}
       </div>
 
-
+      {/* The new section visibility controlled by `isSectionVisible` */}
+      {isSectionVisible && (
+        <div className="new-section visible">
+          <h2>New Section</h2>
+          <p>This section appears when you scroll down 300px.</p>
+        </div>
+      )}
 
       <style jsx>{`
-        /* Container styling */
         .container {
           font-family: 'Poppins', serif;
           margin: 0;
           padding: 0;
-          height: 200vh; /* Allow scrolling */
-          background-color: #424D37; /* Base background color */
-          background-image: 
-            linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(249, 226, 133, 0.2)); /* Gradient with mixture of colors */
+          height: 200vh;
+          background-color: #424D37;
+          background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(249, 226, 133, 0.2));
           overflow: hidden;
         }
 
-        /* Centered word container */
         .word-container {
           font-family: "Work Sans", sans-serif;
-          font-weight: 500; /* Semibold font weight */
-          font-style: italic; /* Normal font style */
-          font-size: 75vh; /* Large initial size */
+          font-weight: 500;
+          font-style: italic;
+          font-size: 75vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          color: #F9E285; /* Text color */
-          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transitions with easing */
+          color: #F9E285;
+          transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
           position: fixed;
-         
           top: 50%;
           left: 50%;
-        
           transform: translate(-50%, -50%);
           text-align: center;
         }
 
-        /* Scrolled state for word container */
         .word-container.scrolled {
-          font-size: 5vh; /* Minimized size */
-          top: 0; /* Move to top */
+          font-size: 5vh;
+          top: 0;
           left: 50%;
-          transform: translateX(-50%); /* Center horizontally */
-          text-align: center; /* Align text to center */
-          background-color: rgba(0, 0, 0, 0.6); /* Transparent black background */
-          padding: 20px; /* Some padding for spacing */
+          transform: translateX(-50%);
+          text-align: center;
+          background-color: rgba(0, 0, 0, 0.6);
+          padding: 20px;
         }
 
-        /* Line styling */
         .line {
           display: flex;
           justify-content: center;
-          gap: 0em; /* Reduced gap for no spacing between letters */
+          gap: 0em;
         }
 
-        /* Single line styling for initial state */
         .single-line {
           display: flex;
         }
 
-        /* Letter hover effects */
         .letter {
           background-image: none;
           transition: color 0.3s ease, background-size 0.3s ease;
@@ -119,40 +116,36 @@ const HeaderPage = () => {
           background-clip: text;
         }
 
-        /* Images for hover effects */
         .letter:nth-child(1):hover,
         .letter:nth-child(2):hover {
-          background-image: url('/image.jpg'); /* Image for D and S */
+          background-image: url('/image.jpg');
         }
 
         .letter:nth-child(3):hover,
         .letter:nth-child(4):hover {
-          background-image: url('/ds.jpg'); /* Image for A and L */
+          background-image: url('/ds.jpg');
         }
 
-        /* Hamburger menu styling */
         .hamburger-menu {
           position: fixed;
           top: 15px;
-          right: 15px; /* Original position on the right */
-          left: auto; /* Ensure it’s reset */
+          right: 15px;
           font-size: 3vh;
           color: #F9E285;
           cursor: pointer;
-          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth opacity change */
+          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* New section styling */
         .new-section {
-          opacity: 0; /* Initially hidden */
-          transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
           text-align: center;
           color: white;
-          margin-top: 100px; /* Adjust this for positioning */
+          margin-top: 100px;
         }
 
         .new-section.visible {
-          opacity: 1; /* Make it visible after scroll */
+          opacity: 1;
         }
       `}</style>
     </div>
