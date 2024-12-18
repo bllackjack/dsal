@@ -65,7 +65,7 @@ const LandingPage = () => {
             }}
           >
             <span className="letter">D</span>
-            <span className="letter">S</span>
+            cc<span className="letter">S</span>
             <span className="letter">A</span>
             <span className="letter">L</span>
           </div>
